@@ -1,0 +1,39 @@
+<div class="row">
+  <!-- Default form login -->
+  <div class="col-md-12">
+    <form class="border border-light p-5" (ngSubmit)="onSignIn(f)" #f="ngForm">
+      <p class="text-center h4 mb-4">Sign in</p>
+      <div class="form-group">
+        <!-- Email -->
+        <input type="text"
+               id="usernameOrEmail"
+               name="usernameOrEmail"
+               required
+               [(ngModel)]="usernameOrEmail"
+               class="form-control mb-4"
+               placeholder="Username / E-mail">
+
+        <!-- Password -->
+        <input type="password"
+               id="password"
+               name="password"
+               required
+               [(ngModel)]="password"
+               class="form-control mb-4" placeholder="Password">
+        <!-- Sign in button -->
+        <button mdbBtn color="info"
+                block="true"
+                class="my-4"
+                type="submit"
+                [disabled]="!f.valid">Sign in
+        </button>
+      </div>
+
+      <!-- Register -->
+      <p>Not a member?
+        <a routerLink="/signUp">Register</a>
+      </p>
+    </form>
+    <!-- Default form login -->
+  </div>
+</div>
