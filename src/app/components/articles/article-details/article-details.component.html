@@ -1,0 +1,54 @@
+
+
+  <!-- Section description -->
+  <p class="text-center w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum.</p>
+
+  <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-lg-5">
+
+      <!-- Featured image -->
+      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+        <img class="img-fluid" src="https://dummyimage.com/600x400/c1c9c9/091a17.jpg&text=Article" alt="Sample image">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-lg-7">
+
+      <!-- Category -->
+      <div class="green-text">
+        <h6 class="font-weight-bold mb-3"><i class="fas fa-home pr-2"></i>Cottage</h6>
+      </div>
+      <!-- Article title -->
+      <h3 class="font-weight-bold mb-3"><strong>{{article.title}}</strong></h3>
+      <!-- Description -->
+      <p>{{article.description}}</p>
+      Post data
+      <!--<p>by <strong>{{article.account.username}}</strong>, 19/08/2018</p>-->
+      <p>by <strong> {{account?.username}} {{article.account?.username}}</strong>, 19/08/2018</p>
+      <p>
+        <i class="fas fa-envelope"></i><strong> {{account?.email}} {{article.account?.email}}</strong>
+      </p>
+      <!-- Read more button -->
+      <a mdbBtn color="success" mdbWavesEffect>Read more</a>
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+  <hr class="my-5">
+
+
+
+

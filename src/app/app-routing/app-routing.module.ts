@@ -1,13 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {WelcomeComponent} from '../components/welcome/welcome.component';
+import {ArticleListComponent} from '../components/articles/article-list/article-list.component';
 import {RouteGuardService} from '../services/guards/route-guard.service';
 import {SignInComponent} from '../components/signin/sign-in.component';
+import {MyAccountComponent} from '../components/my-account/my-account.component';
+import {ROUTE_ARTICLES, ROUTE_LOGIN, ROUTE_MY_ACCOUNT} from '../constants/app.constants';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/signIn', pathMatch: 'full'},
-  {path: 'signIn', component: SignInComponent},
-  {path: 'welcome', component: WelcomeComponent, canActivate: [RouteGuardService]}
+  {path: '', redirectTo: ROUTE_LOGIN, pathMatch: 'full'},
+  {path: ROUTE_LOGIN, component: SignInComponent},
+  {path: ROUTE_ARTICLES, component: ArticleListComponent, canActivate: [RouteGuardService]},
+  {path: ROUTE_MY_ACCOUNT, component: MyAccountComponent, canActivate: [RouteGuardService]}
 ];
 @NgModule({
   imports: [(RouterModule.forRoot(appRoutes))],

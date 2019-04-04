@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/authentication/auth.service';
 import {Router} from '@angular/router';
-import {Subscription} from 'rxjs';
+import {ROUTE_ARTICLES, ROUTE_LOGIN} from '../../constants/app.constants';
 
 @Component({
   selector: 'nav-bar',
@@ -21,5 +21,13 @@ export class NavBarComponent implements OnInit {
   logOut() {
     this.auth.logOut();
     this.router.navigate(['']);
+  }
+
+  navigate() {
+    if (this.auth.isAuthenticated()) {
+      this.router.navigate([ROUTE_ARTICLES]);
+    } else {
+      this.router.navigate([ROUTE_LOGIN]);
+    }
   }
 }

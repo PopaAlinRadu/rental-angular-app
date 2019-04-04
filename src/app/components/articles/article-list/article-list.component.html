@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- Section -->
+    <section class="my-5">
+      <!-- Section heading -->
+      <h2 class="h2-responsive font-weight-bold text-center my-5">
+        Articles <span class="badge badge-pill badge-light ml-1 mb-1">{{articles?.length}}</span>
+      </h2>
+
+      <article-details
+        *ngFor="let articleElement of articles; let i = index"
+        [article]="articleElement"
+        [index]="i">
+      </article-details>
+
+    </section>
+    <!-- Section -->
+
+  </div>
+</div>

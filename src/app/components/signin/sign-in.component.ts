@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../services/authentication/auth.service';
 import {Router} from '@angular/router';
+import {ROUTE_ARTICLES} from '../../constants/app.constants';
 
 @Component({
   selector: 'app-signin',
@@ -19,14 +20,14 @@ export class SignInComponent implements OnInit {
 
   ngOnInit() {
     if (this.auth.isAuthenticated()) {
-      this.router.navigate(['welcome']);
+      this.router.navigate([ROUTE_ARTICLES]);
     }
   }
 
   onSignIn(form: NgForm) {
     this.auth.signIn(this.usernameOrEmail, this.password).subscribe(
       data => {
-        this.router.navigate(['welcome']);
+        this.router.navigate([ROUTE_ARTICLES]);
       },
       error => {
         console.log('Message: ' + error.error.message);
