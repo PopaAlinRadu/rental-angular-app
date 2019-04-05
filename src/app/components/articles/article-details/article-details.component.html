@@ -30,17 +30,18 @@
         <h6 class="font-weight-bold mb-3"><i class="fas fa-home pr-2"></i>Cottage</h6>
       </div>
       <!-- Article title -->
-      <h3 class="font-weight-bold mb-3"><strong>{{article.title}}</strong></h3>
+      <h3 class="font-weight-bold mb-3"><strong>{{article?.title}}</strong></h3>
       <!-- Description -->
-      <p>{{article.description}}</p>
-      Post data
+      <p>{{article?.description}}</p>
+      Post data:
       <!--<p>by <strong>{{article.account.username}}</strong>, 19/08/2018</p>-->
-      <p>by <strong> {{account?.username}} {{article.account?.username}}</strong>, 19/08/2018</p>
+      <p>by <strong> {{account?.username}} {{article?.account?.username}}</strong>, 19/08/2018</p>
       <p>
-        <i class="fas fa-envelope"></i><strong> {{account?.email}} {{article.account?.email}}</strong>
+        <i class="fas fa-envelope"></i><strong> {{account?.email}} {{article?.account?.email}}</strong>
       </p>
       <!-- Read more button -->
       <a mdbBtn color="success" mdbWavesEffect>Read more</a>
+      <a *ngIf="account?.id" mdbBtn color="danger" (click)="delete(article?.id)" mdbWavesEffect>Delete</a>
 
     </div>
     <!-- Grid column -->

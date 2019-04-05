@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API_ARTICLES_BASE} from '../../constants/app.constants';
+import {Article} from '../../models/article/article.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,14 @@ export class ArticlesService {
 
   getMyArticles(id: number) {
     return this.http.get<any>(`${API_ARTICLES_BASE}/user/${id}`);
+  }
+
+  saveArticle(article: Article) {
+    return this.http.post<any>(`${API_ARTICLES_BASE}`, article);
+  }
+
+  deleteArticle(id: number) {
+    return this.http.delete(`${API_ARTICLES_BASE}/${id}`);
   }
 
 }

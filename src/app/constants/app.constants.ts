@@ -16,3 +16,4 @@ export const API_ARTICLES_BASE = 'http://localhost:8081/api/articles';
 export const ROUTE_ARTICLES = 'articles';
 export const ROUTE_LOGIN = 'login';
 export const ROUTE_MY_ACCOUNT = 'myAccount';
+export const ROUTE_ADD_ARTICLE = `${ROUTE_MY_ACCOUNT}/article`;

@@ -1,0 +1,62 @@
+<div class="container">
+  <!--Form Title-->
+  <h3 class="h3-responsive font-weight-bold text-center m-5">
+    Article Form
+  </h3>
+  <!--Form Title-->
+
+  <div class="row border">
+    <div class="col-md-6">
+
+      <form (ngSubmit)="onSave(articleForm)" #articleForm="ngForm">
+        <!--Article Title-->
+        <div class="md-form">
+          <i class="fas fa-align-justify prefix"></i>
+          <input type="text"
+                 id="title"
+                 name="title"
+                 class="form-control"
+                 required
+                 ngModel
+                 mdbInput>
+          <label for="title">Article Title</label>
+        </div>
+        <!--Article Title-->
+
+        <!--Article Description-->
+        <div class="md-form">
+          <i class="fas fa-pencil-alt prefix"></i>
+          <textarea type="text"
+                    id="description"
+                    name="description"
+                    class="form-control md-textarea"
+                    required
+                    ngModel
+                    mdbInput></textarea>
+          <label for="description">Article Description</label>
+        </div>
+        <!--Article Description-->
+
+        <!--Actions Button-->
+        <div class="text-left m-2">
+          <button color="primary"
+                  class="waves-light"
+                  type="submit"
+                  mdbBtn
+                  mdbWavesEffect
+                  [disabled]="!articleForm.valid">Save Article
+          </button>
+          <button color="primary"
+                  class="waves-light"
+                  mdbBtn
+                  mdbWavesEffect
+                  routerLink="/myAccount">Cancel
+          </button>
+        </div>
+        <!--Action Button-->
+      </form>
+
+    </div>
+  </div>
+</div>
+

@@ -14,6 +14,7 @@ import {SignInComponent} from './components/signin/sign-in.component';
 import {MyAccountComponent} from './components/my-account/my-account.component';
 import {ArticleDetailsComponent} from './components/articles/article-details/article-details.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ArticleEditComponent } from './components/articles/article-edit/article-edit.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ArticleListComponent,
     MyAccountComponent,
     ArticleDetailsComponent,
-    FooterComponent
+    FooterComponent,
+    ArticleEditComponent
   ],
   imports: [
     BrowserModule,

@@ -21,12 +21,13 @@ export class ArticleListComponent implements OnInit {
   getArticles() {
     this.articleService.getArticles().subscribe(
       (data) => {
-        this.articles = data.data;
+        this.articles = (data) ? data.data : null;
       },
       error => {
-        console.log('Error' + error);
+        console.log(error.error);
       }
     );
   }
+
 
 }

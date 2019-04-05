@@ -29,24 +29,43 @@
 <!-- Section: Contact -->
 
 <section class="my-5">
-  <h5 class="h5-responsive font-weight-bold text-center my-5">
-    My Articles: <span class="badge badge-pill badge-light ml-2">{{myArticles?.length}}</span>
-  </h5>
 
-  <div class="text-center">
-    <button mdbBtn color="primary" class="waves-light" type="button" (click)="changeMessage(); action.toggle()"
-            mdbWavesEffect>
-      {{message}}
-    </button>
+
+  <!--Actions for my Articles-->
+  <div class="row">
+    <div class="col-4">
+      <div class="text-left my-5">
+        <button mdbBtn color="primary" class="waves-light" type="button" (click)="changeMessage(); articles.toggle()"
+                mdbWavesEffect>
+          {{message}}
+        </button>
+      </div>
+    </div>
+    <div class="col-4">
+      <h4 class="h4-responsive font-weight-bold text-center my-5">
+        My Articles: <span class="badge badge-pill badge-light ml-2">{{myArticles?.length}}</span>
+      </h4>
+    </div>
+    <div class="col-4">
+      <div class="text-right my-5">
+        <button mdbBtn color="primary" class="waves-light" type="button" (click)="addArticle(); articles.toggle();"
+                mdbWavesEffect>
+          Add Article
+        </button>
+      </div>
+    </div>
   </div>
+  <hr class="my-5">
+  <!--Actions for my Articles-->
 
-  <div class="" mdbCollapse #action="bs-collapse">
+  <div class="" mdbCollapse #articles="bs-collapse">
 
     <article-details
       *ngFor="let articleElement of myArticles; let i= index"
       [article]="articleElement"
       [account]="account"
-      [index]="i">
+      [index]="i"
+      (articleDeleted)="changeArticlesList($event, i)">
     </article-details>
 
   </div>

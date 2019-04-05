@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {AccountService} from '../../services/account/account.service';
 
 import {Account} from '../../models/account/account.model';
 import {ACCOUNT_ID, AUTHENTICATED_USER} from '../../constants/app.constants';
 import {Article} from '../../models/article/article.model';
 import {ArticlesService} from '../../services/article/articles.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 const VIEW_ARTICLES = 'View Articles';
 const HIDE_ARTICLES = 'Hide Articles';
@@ -23,13 +24,19 @@ export class MyAccountComponent implements OnInit {
   message: string;
 
   constructor(private accountService: AccountService,
-              private articleService: ArticlesService) {
+              private articleService: ArticlesService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.getAccountDetailsByUsername(sessionStorage.getItem(AUTHENTICATED_USER));
     this.getMyArticles(Number(sessionStorage.getItem(ACCOUNT_ID)));
     this.message = VIEW_ARTICLES;
+  }
+
+  changeArticlesList($event, index: number) {
+    this.myArticles.splice(index, 1);
   }
 
   getAccountDetailsByUsername(usernameOrEmail: string) {
@@ -46,14 +53,10 @@ export class MyAccountComponent implements OnInit {
   getMyArticles(id: number) {
     this.articleService.getMyArticles(id).subscribe(
       data => {
-        console.log(data.data);
-        for (const article of data.data) {
-          console.log(article);
-          this.myArticles.push(article);
-          console.log(this.myArticles);
-        }
-
-        // this.myArticles = data.data;
+        this.myArticles = (data) ? data.data : null;
+      },
+      error => {
+        console.log(error.error);
       }
     );
   }
@@ -65,6 +68,10 @@ export class MyAccountComponent implements OnInit {
     } else {
       this.message = VIEW_ARTICLES;
     }
+  }
+
+  addArticle() {
+    this.router.navigate(['article'], {relativeTo: this.route});
   }
 
 }
