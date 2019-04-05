@@ -1,0 +1,57 @@
+<div class="row registration">
+  <!--Registration Message-->
+
+
+  <!-- Default form login -->
+  <div class="col-md-12">
+    <form class="border border-light p-5" (ngSubmit)="onSignUp(f)" #f="ngForm">
+      <p class="text-center h4 mb-4">Register new Account</p>
+
+      <div class="form-group row">
+        <!-- Username -->
+          <i class="fas fa-user col-md-1 mt-2"></i>
+          <input type="text"
+                 id="username"
+                 name="username"
+                 required
+                 [(ngModel)]="username"
+                 class="form-control mb-4 col-md-10"
+                 placeholder="Username">
+      </div>
+
+      <div class="form-group row">
+        <!-- Email -->
+        <i class="fas fa-at col-md-1 mt-2"></i>
+        <input type="email"
+               id="email"
+               name="email"
+               required
+               [(ngModel)]="email"
+               class="form-control mb-4 col-md-10"
+               placeholder="E-mail">
+      </div>
+
+      <div class="form-group row">
+        <!-- Password -->
+        <i class="fas fa-key col-md-1 mt-2"></i>
+        <input type="password"
+               id="password"
+               name="password"
+               required
+               [(ngModel)]="password"
+               class="form-control mb-4 col-md-10"
+               placeholder="Password">
+      </div>
+        <!-- Sign in button -->
+        <button mdbBtn color="info"
+                block="true"
+                class="my-4"
+                type="submit"
+                [disabled]="!f.valid">Register
+        </button>
+
+    </form>
+    <!-- Default form login -->
+  </div>
+</div>
+

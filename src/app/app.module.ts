@@ -15,6 +15,7 @@ import {MyAccountComponent} from './components/my-account/my-account.component';
 import {ArticleDetailsComponent} from './components/articles/article-details/article-details.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ArticleEditComponent } from './components/articles/article-edit/article-edit.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ArticleEditComponent } from './components/articles/article-edit/article
     MyAccountComponent,
     ArticleDetailsComponent,
     FooterComponent,
-    ArticleEditComponent
+    ArticleEditComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
