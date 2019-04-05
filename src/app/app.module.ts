@@ -4,6 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {FormsModule} from '@angular/forms';
+import {ToastContainerModule, ToastrModule} from 'ngx-toastr';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -13,9 +14,9 @@ import {ArticleListComponent} from './components/articles/article-list/article-l
 import {SignInComponent} from './components/signin/sign-in.component';
 import {MyAccountComponent} from './components/my-account/my-account.component';
 import {ArticleDetailsComponent} from './components/articles/article-details/article-details.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { ArticleEditComponent } from './components/articles/article-edit/article-edit.component';
-import { RegistrationComponent } from './components/registration/registration.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {ArticleEditComponent} from './components/articles/article-edit/article-edit.component';
+import {RegistrationComponent} from './components/registration/registration.component';
 
 
 @NgModule({
@@ -36,7 +37,15 @@ import { RegistrationComponent } from './components/registration/registration.co
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(
+      {
+        positionClass: 'toast-top-full-width',
+        timeOut: 5000,
+        progressBar: true,
+        preventDuplicates: true
+      }),
+    ToastContainerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true}

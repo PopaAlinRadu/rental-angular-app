@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../services/authentication/auth.service';
 import {Router} from '@angular/router';
 import {ROUTE_ARTICLES} from '../../constants/app.constants';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-signin',
@@ -15,7 +16,8 @@ export class SignInComponent implements OnInit {
   password: string;
 
   constructor(private auth: AuthService,
-              private router: Router) {
+              private router: Router,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class SignInComponent implements OnInit {
         this.router.navigate([ROUTE_ARTICLES]);
       },
       error => {
+        this.toastr.error(error.error.message);
         console.log('Message: ' + error.error.message);
         console.log(error.error.status);
         console.log(error.error.error);

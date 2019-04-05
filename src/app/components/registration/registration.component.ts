@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {RegistrationService} from '../../services/registration/registration.service';
+import {ToastContainerDirective, ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +17,8 @@ export class RegistrationComponent implements OnInit {
   successMessage: string;
   errorsMessages: string[] = [];
 
-  constructor(private registrationService: RegistrationService) {
+  constructor(private registrationService: RegistrationService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -32,13 +34,16 @@ export class RegistrationComponent implements OnInit {
 
     this.registrationService.reigerAccount(account).subscribe(
       data => {
-        this.successMessage = data.message;
+        // @ts-ignore
+        // this.successMessage = data.message;
+        this.toastr.success(data.message);
       },
       error => {
         console.log(error);
         const errors: [] = error.error.errors;
         for (const errorMessage of errors) {
-          this.errorsMessages.push(errorMessage.field + ' ' + errorMessage.defaultMessage);
+          // @ts-ignore
+          this.toastr.error(errorMessage.field + ': ' + errorMessage.defaultMessage);
         }
       }
     );
