@@ -11,4 +11,9 @@ export class MyAccountDetailsComponent {
 
   @Input() account: Account;
 
+  isDisplayed = false;
+
+  onClick() {
+    this.isDisplayed = !this.isDisplayed;
+  }
 }
