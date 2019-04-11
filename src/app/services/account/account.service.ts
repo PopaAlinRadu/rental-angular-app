@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {Account} from '../../models/account/account.model';
+import {Account} from '../../models/account/account';
 import {API_USERS_BASE, API_USERS_ME} from '../../constants/app.constants';
 
 @Injectable({

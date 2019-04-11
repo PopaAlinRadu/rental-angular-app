@@ -8,7 +8,7 @@
       </h2>
 
       <article-details
-        *ngFor="let articleElement of articles; let i = index"
+        *ngFor="let articleElement of articles; let i = index; trackBy: trackArticle"
         [article]="articleElement"
         [index]="i">
       </article-details>

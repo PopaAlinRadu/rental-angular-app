@@ -17,6 +17,8 @@ import {ArticleDetailsComponent} from './components/articles/article-details/art
 import {FooterComponent} from './components/footer/footer.component';
 import {ArticleEditComponent} from './components/articles/article-edit/article-edit.component';
 import {RegistrationComponent} from './components/registration/registration.component';
+import { MyAccountDetailsComponent } from './components/my-account/my-account-details/my-account-details.component';
+import {NgPipesModule} from 'ngx-pipes';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import {RegistrationComponent} from './components/registration/registration.comp
     ArticleDetailsComponent,
     FooterComponent,
     ArticleEditComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    MyAccountDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import {RegistrationComponent} from './components/registration/registration.comp
         progressBar: true,
         preventDuplicates: true
       }),
-    ToastContainerModule
+    ToastContainerModule,
+    NgPipesModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true}

@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AccountService} from '../../services/account/account.service';
 
-import {Account} from '../../models/account/account.model';
+import {Account} from '../../models/account/account';
+import {Article} from '../../models/article/article';
 import {ACCOUNT_ID, AUTHENTICATED_USER} from '../../constants/app.constants';
-import {Article} from '../../models/article/article.model';
 import {ArticlesService} from '../../services/article/articles.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -42,7 +42,7 @@ export class MyAccountComponent implements OnInit {
   getAccountDetailsByUsername(usernameOrEmail: string) {
     this.accountService.getAccountDetailsByUsername(usernameOrEmail).subscribe(
       (account: Account) => {
-        this.account = new Account(account.id, account.username, account.email, '*******');
+        this.account = account;
       },
       error => {
         console.log('Error:' + error);

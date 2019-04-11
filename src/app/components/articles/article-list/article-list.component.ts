@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../../../models/article/article.model';
+import {Article} from '../../../models/article/article';
 import {ArticlesService} from '../../../services/article/articles.service';
 
 @Component({
@@ -29,5 +29,8 @@ export class ArticleListComponent implements OnInit {
     );
   }
 
+  trackArticle(index, article) {
+    return article ? article.id : undefined;
+  }
 
 }
