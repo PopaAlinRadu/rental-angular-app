@@ -19,6 +19,7 @@ import {ArticleEditComponent} from './components/articles/article-edit/article-e
 import {RegistrationComponent} from './components/registration/registration.component';
 import { MyAccountDetailsComponent } from './components/my-account/my-account-details/my-account-details.component';
 import {NgPipesModule} from 'ngx-pipes';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {NgPipesModule} from 'ngx-pipes';
     FooterComponent,
     ArticleEditComponent,
     RegistrationComponent,
-    MyAccountDetailsComponent
+    MyAccountDetailsComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +53,11 @@ import {NgPipesModule} from 'ngx-pipes';
     ToastContainerModule,
     NgPipesModule
   ],
+  entryComponents: [
+    ModalComponent
+  ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true},
   ],
   bootstrap: [AppComponent]
 })

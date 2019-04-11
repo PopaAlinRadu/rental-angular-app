@@ -3,13 +3,15 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 import {ACCOUNT_ID, API_USERS_BASE, API_USERS_SIGN_IN, AUTHENTICATED_USER, BEARER, TOKEN} from '../../constants/app.constants';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private router: Router) {
   }
 
   public signIn(usernameOrEmail: string, password: string) {
@@ -29,6 +31,7 @@ export class AuthService {
   public logOut() {
     sessionStorage.removeItem(AUTHENTICATED_USER);
     sessionStorage.removeItem(TOKEN);
+    this.router.navigate(['']);
   }
 
   public isAuthenticated() {

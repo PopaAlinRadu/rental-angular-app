@@ -19,4 +19,8 @@ export class AccountService {
   getAccountDetailsByUsername(usernameOrEmail: string) {
     return this.http.get<Account>(API_USERS_ME, {headers: {'usernameOrEmail': usernameOrEmail}});
   }
+
+  deleteAccount(id: number) {
+    return this.http.delete(`${API_USERS_BASE}/${id}`);
+  }
 }

@@ -4,18 +4,20 @@
   <!-- Section heading -->
   <h2 class="h1-responsive font-weight-bold text-center my-5">
     Account Details
+
     <i [className]=" isDisplayed ? 'fas fa-angle-double-up': 'fas fa-angle-double-down' "
        (click)="onClick() ; accountDetails.toggle()"
        style="cursor: pointer">
     </i>
   </h2>
 
+
   <hr *ngIf="isDisplayed" class="my-5">
 
   <!-- Grid row -->
   <div class="row" mdbCollapse #accountDetails="bs-collapse">
     <!-- Account Name -->
-    <div class="col-md-3 text-center">
+    <div class="col-md-2 text-center">
       <i class="fas fa-user fa-2x mt-4 blue-text"></i>
       <p>{{account?.username}}</p>
     </div>
@@ -33,11 +35,19 @@
     </div>
     <!-- /Account email -->
     <!-- Account role -->
-    <div class="col-md-3 text-center">
+    <div class="col-md-2 text-center">
       <i class="fas fa-key fa-2x mt-4 blue-text"></i>
       <p class="mb-0">{{account?.roles[0].roleName | slugify}}</p>
     </div>
     <!-- /Account role -->
+    <!-- Close Account-->
+    <div class="col-md-2 text-center">
+      <button *ngIf="isDisplayed"
+              class="btn btn-danger"
+              (click)="openDeleteModal()">Close Account
+      </button>
+    </div>
+    <!-- /Close Account -->
   </div>
   <!-- /Grid row -->
 

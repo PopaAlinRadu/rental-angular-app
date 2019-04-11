@@ -15,12 +15,10 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   logOut() {
     this.auth.logOut();
-    this.router.navigate(['']);
   }
 
   navigate() {
